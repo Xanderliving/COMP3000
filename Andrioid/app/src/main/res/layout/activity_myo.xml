@@ -11,6 +11,8 @@
         android:layout_height="51dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="104dp"
+        android:max="6"
+        android:min="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +25,16 @@
         android:layout_marginTop="120dp"
         android:layout_marginEnd="208dp"
         android:paddingTop="16dp"
-        android:text="Progress: 50"
+        android:text="shots: 0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/statustxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="204dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

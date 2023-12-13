@@ -2,10 +2,14 @@ package com.example.picknmixologist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,17 +18,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnNavigate = findViewById(R.id.naviagtebtn);
-
-        btnNavigate.setOnClickListener(new View.OnClickListener() {
+        Button settingbtn = findViewById(R.id.naviagtebtn);
+        settingbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Create an Intent to start SecondActivity
-                Intent intent = new Intent(MainActivity.this, MYOActivity.class);
 
-                // Start the SecondActivity
+                Intent intent = new Intent(MainActivity.this, MYOActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 }
