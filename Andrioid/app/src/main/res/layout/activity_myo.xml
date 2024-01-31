@@ -5,37 +5,296 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SeekBar
-        android:id="@+id/slider"
-        android:layout_width="268dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="104dp"
-        android:max="6"
-        android:min="0"
+    <!--Background-->
+
+    <!--Shot Value for pump1-->
+
+    <!--Shot Value for pump2-->
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#9C9494"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/Pump1Shots"
+        android:layout_width="51dp"
+        android:layout_height="43dp"
+        android:layout_below="@id/Pump1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="44dp"
+        android:paddingTop="16dp"
+        android:text="shots: 0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--Slider for pump1-->
     <TextView
-        android:id="@+id/progressText"
+        android:id="@+id/Pump2Shots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/slider"
+        android:layout_below="@id/Pump1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="208dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="44dp"
         android:paddingTop="16dp"
         android:text="shots: 0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/statustxt"
+        android:id="@+id/Pump3Shots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="204dp"
+        android:layout_below="@id/Pump1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="44dp"
+        android:paddingTop="16dp"
+        android:text="shots: 0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Pump4Shots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Pump1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="332dp"
+        android:layout_marginEnd="44dp"
+        android:paddingTop="16dp"
+        android:text="shots: 0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Pump5Shots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Pump1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="44dp"
+        android:paddingTop="16dp"
+        android:text="shots: 0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Pump6Shots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Pump1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="444dp"
+        android:layout_marginEnd="44dp"
+        android:paddingTop="16dp"
+        android:text="shots: 0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/Pump1"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="160dp"
+        android:max="6"
+        android:min="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Slider for pump2-->
+    <SeekBar
+        android:id="@+id/Pump2"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="220dp"
+        android:max="6"
+        android:min="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Slider for pump3-->
+
+
+    <SeekBar
+        android:id="@+id/Pump3"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="280dp"
+        android:max="6"
+        android:min="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/Pump4"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="340dp"
+        android:max="6"
+        android:min="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/Pump5"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="400dp"
+        android:max="6"
+        android:min="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/Pump6"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="460dp"
+        android:max="6"
+        android:min="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/submitbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="408dp"
+        android:layout_marginEnd="220dp"
+        android:text="Pump on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pump1Shots" />
+
+    <Button
+        android:id="@+id/subbtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="408dp"
+        android:layout_marginEnd="88dp"
+        android:text="Pump off"
+        android:onClick="onButtonClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pump1Shots" />
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="223dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Create Your Own"
+        android:textAlignment="center"
+        android:textColor="#FDFDFD"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Vodkatxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="152dp"
+        android:text="Vodka"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/Gintxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="212dp"
+        android:text="Gin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/Rumtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="272dp"
+        android:text="Rum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/Tequilatxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="332dp"
+        android:text="Tequila"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/Coketxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="392dp"
+        android:text="Coke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/Lemonadetxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="444dp"
+        android:text="Lemonade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <Button
+        android:id="@+id/Sendbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

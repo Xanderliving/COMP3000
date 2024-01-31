@@ -19,9 +19,9 @@
         android:id="@+id/naviagtebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
-        android:layout_marginEnd="100dp"
-        android:text="Button"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="24dp"
+        android:text="Make Your Own"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,5 +32,16 @@
         app:srcCompat="@drawable/logo"
         tools:layout_editor_absoluteX="-4dp"
         tools:layout_editor_absoluteY="-4dp" />
+
+    <Button
+        android:id="@+id/databasebtn"
+        android:layout_width="157dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:text="Database"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.239" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

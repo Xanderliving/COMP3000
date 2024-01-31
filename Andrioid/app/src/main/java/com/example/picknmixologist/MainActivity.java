@@ -18,12 +18,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button settingbtn = findViewById(R.id.naviagtebtn);
-        settingbtn.setOnClickListener(new View.OnClickListener() {
+        Button MYObtn = findViewById(R.id.naviagtebtn);
+        MYObtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, MYOActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button cocktailbtn = findViewById(R.id.databasebtn);
+        cocktailbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, CocktailsActivity.class);
                 startActivity(intent);
             }
         });

@@ -14,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class fetchData extends AsyncTask<Void, Void, String> {
-    // Use WeakReference to avoid potential memory leaks
+    
     private WeakReference<TextView> statusTextView;
 
     fetchData(TextView statusTextView) {
@@ -52,18 +52,16 @@ public class fetchData extends AsyncTask<Void, Void, String> {
         TextView textView = statusTextView.get();
         if (textView != null) {
             if (result != null) {
-                // Parse the JSON response and extract the "Status" data
-                // Assuming the response is in JSON format
+
                 try {
-                    // Replace this with your JSON parsing logic
-                    // For simplicity, assuming the "Status" key is at the top level
-                    String status = new JSONObject(result).getString("Status");
+
+                    String status = new JSONObject(result).getString("status");
                     textView.setText(status);
                 } catch (JSONException e) {
                     Log.e("JSON Parsing", "Error", e);
                 }
             } else {
-                textView.setText("Failed to get data from the server.");
+                textView.setText("Not Connected.");
             }
         }
     }
