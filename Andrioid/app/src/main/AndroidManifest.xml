@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MYOActivity"/>
+        <activity android:name=".CocktailsActivity"/>
     </application>
 
 </manifest>

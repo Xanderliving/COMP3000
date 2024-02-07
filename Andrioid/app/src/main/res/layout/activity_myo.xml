@@ -11,68 +11,96 @@
 
     <!--Shot Value for pump2-->
 
+
+    <!--Slider for pump1-->
     <View
         android:id="@+id/view2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#9C9494"
+        android:background="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="1057dp"
+        android:layout_height="1981dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_000_f_95910754_cuyokd7ua39farn37qlcb6ixl8ziyim1" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="618dp"
+        android:layout_height="944dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754"
+        app:srcCompat="@drawable/picture3" />
+
+    <!--Slider for pump2-->
+
+    <!--Slider for pump3-->
+
 
     <TextView
         android:id="@+id/Pump1Shots"
-        android:layout_width="51dp"
+        android:layout_width="88dp"
         android:layout_height="43dp"
         android:layout_below="@id/Pump1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="56dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
         android:paddingTop="16dp"
-        android:text="shots: 0"
+        android:shadowColor="@android:color/white"
+        android:shadowRadius="50"
+        android:text="Shots: 0"
+        android:textSize="60px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Slider for pump1-->
     <TextView
         android:id="@+id/Pump2Shots"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="87dp"
+        android:layout_height="42dp"
         android:layout_below="@id/Pump1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="56dp"
+        android:fontFamily="sans-serif-black"
         android:paddingTop="16dp"
-        android:text="shots: 0"
+        android:shadowColor="@android:color/white"
+        android:shadowRadius="50"
+        android:text="Shots: 0"
+        android:textColor="@color/black"
+        android:textSize="60px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Pump3Shots"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="83dp"
+        android:layout_height="40dp"
         android:layout_below="@id/Pump1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="sans-serif-black"
         android:paddingTop="16dp"
-        android:text="shots: 0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Pump4Shots"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Pump1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="332dp"
-        android:layout_marginEnd="44dp"
-        android:paddingTop="16dp"
-        android:text="shots: 0"
+        android:shadowColor="@android:color/white"
+        android:shadowRadius="50"
+        android:text="Shots: 0"
+        android:textColor="@color/black"
+        android:textSize="60px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,10 +110,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Pump1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="392dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="432dp"
+        android:layout_marginEnd="76dp"
+        android:fontFamily="sans-serif-black"
         android:paddingTop="16dp"
-        android:text="shots: 0"
+        android:shadowColor="@android:color/white"
+        android:shadowRadius="50"
+        android:text="Shots: 0"
+        android:textColor="@color/black"
+        android:textSize="60px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,121 +128,129 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Pump1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="444dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="76dp"
+        android:fontFamily="sans-serif-black"
         android:paddingTop="16dp"
-        android:text="shots: 0"
+        android:shadowColor="@android:color/white"
+        android:shadowRadius="50"
+        android:text="Shots: 0"
+        android:textColor="@color/black"
+        android:textSize="60px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Pump4Shots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Pump1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="76dp"
+        android:fontFamily="sans-serif-black"
+        android:paddingTop="16dp"
+        android:shadowColor="@android:color/white"
+        android:shadowRadius="50"
+        android:text="Shots: 0"
+        android:textColor="@color/black"
+        android:textSize="60px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/Pump1"
-        android:layout_width="250dp"
+        android:layout_width="299dp"
         android:layout_height="20dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="192dp"
         android:max="6"
+
         android:min="0"
+        android:progressBackgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Slider for pump2-->
     <SeekBar
         android:id="@+id/Pump2"
-        android:layout_width="250dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="220dp"
+        android:layout_width="297dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="260dp"
         android:max="6"
         android:min="0"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--Slider for pump3-->
-
 
     <SeekBar
         android:id="@+id/Pump3"
-        android:layout_width="250dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="280dp"
+        android:layout_width="295dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="332dp"
         android:max="6"
         android:min="0"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/Pump4"
-        android:layout_width="250dp"
+        android:layout_width="295dp"
         android:layout_height="20dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="404dp"
         android:max="6"
         android:min="0"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/Pump5"
-        android:layout_width="250dp"
+        android:layout_width="292dp"
         android:layout_height="20dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="476dp"
         android:max="6"
         android:min="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.386"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/Pump6"
-        android:layout_width="250dp"
+        android:layout_width="294dp"
         android:layout_height="20dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="544dp"
         android:max="6"
         android:min="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/submitbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="408dp"
-        android:layout_marginEnd="220dp"
-        android:text="Pump on"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pump1Shots" />
-
-    <Button
-        android:id="@+id/subbtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="408dp"
-        android:layout_marginEnd="88dp"
-        android:text="Pump off"
-        android:onClick="onButtonClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pump1Shots" />
-
     <TextView
         android:id="@+id/Title"
-        android:layout_width="223dp"
-        android:layout_height="131dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="341dp"
+        android:layout_height="70dp"
         android:fontFamily="sans-serif-black"
-        android:text="Create Your Own"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="50"
+        android:text="Drink Creator"
+
         android:textAlignment="center"
-        android:textColor="#FDFDFD"
+        android:textColor="#FAF3F3"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -218,10 +259,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="152dp"
-        android:text="Vodka"
+        android:layout_marginTop="144dp"
+        android:text=" Vodka "
+        android:fontFamily="sans-serif-black"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#111111"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="70"
+        android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -231,9 +279,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="212dp"
-        android:text="Gin"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="70"
+        android:text=" Gin "
+        android:textColor="#FFFFFF"
+        android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -242,10 +297,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="272dp"
-        android:text="Rum"
+        android:layout_marginTop="284dp"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="70"
+        android:text=" Rum "
+        android:textColor="#FFFFFF"
+        android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -254,10 +316,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="332dp"
-        android:text="Tequila"
+        android:layout_marginTop="356dp"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="70"
+        android:text=" Tequila "
+        android:textColor="#FFFFFF"
+        android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -266,10 +335,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="392dp"
-        android:text="Coke"
+        android:layout_marginTop="428dp"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="70"
+        android:text=" Coke "
+        android:textColor="#FFFFFF"
+        android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -278,10 +354,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="444dp"
-        android:text="Lemonade"
+        android:layout_marginTop="496dp"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="70"
+        android:text=" Lemonade "
+        android:textColor="#FFFFFF"
+        android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -290,11 +373,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send Info"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.957" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

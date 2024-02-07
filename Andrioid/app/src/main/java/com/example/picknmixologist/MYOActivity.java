@@ -1,43 +1,47 @@
 package com.example.picknmixologist;
 
-import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.os.AsyncTask;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
+
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.URI;
-
-import java.nio.charset.StandardCharsets;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MYOActivity extends AppCompatActivity {
     private int url2;
     private SeekBar slider;
+
+    private CountDownTimer countDownTimer, countDownTimer2, countDownTimer3, countDownTimer4, countDownTimer5, countDownTimer6;
+    public int[] Shots = {0,0,0,0,0,0};
     private TextView progressText, progressText2, progressText3, progressText4, progressText5, progressText6;
-    private String Pump1, Pump2, Pump3, Pump4, Pump5, Pump6;
-    private RequestQueue requestQueue;
+    private int Pump1, Pump2, Pump3, Pump4, Pump5, Pump6;
+
+    public int OnPumps = 0;
+    public int OffPumps = 0;
     private Button sendButton;
 
-    public void onButtonClick(View view) {
-        PutRequest.changeStatusOff(this);
+    public void onButtonClick() {
+        PutRequest.changeStatusOff(this, OffPumps);
+    }
+    public void onButtonClick2() {
+        PutRequest.changeStatusOn(this, OnPumps);
     }
 
     @Override
@@ -56,7 +60,7 @@ public class MYOActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //Update the TextView to show the current progress
                 progressText.setText("Shots: " + progress);
-                Pump1 = String.valueOf(progress);
+                Pump1 = progress;
             }
 
             @Override
@@ -81,7 +85,7 @@ public class MYOActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //Update the TextView to show the current progress
                 progressText2.setText("Shots: " + progress);
-                Pump2 = String.valueOf(progress);
+                Pump2 = progress;
             }
 
             @Override
@@ -106,7 +110,7 @@ public class MYOActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //Update the TextView to show the current progress
                 progressText3.setText("Shots: " + progress);
-                Pump3 = String.valueOf(progress);
+                Pump3 = progress;
             }
 
             @Override
@@ -131,7 +135,7 @@ public class MYOActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //Update the TextView to show the current progress
                 progressText4.setText("Shots: " + progress);
-                Pump4 = String.valueOf(progress);
+                Pump4 = progress;
             }
 
             @Override
@@ -156,7 +160,8 @@ public class MYOActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //Update the TextView to show the current progress
                 progressText5.setText("Shots: " + progress);
-                Pump5 = String.valueOf(progress);
+                Pump5 = progress;
+
             }
 
             @Override
@@ -181,7 +186,8 @@ public class MYOActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //Update the TextView to show the current progress
                 progressText6.setText("Shots: " + progress);
-                Pump6 = String.valueOf(progress);
+                Pump6 = progress;
+
             }
 
             @Override
@@ -196,63 +202,118 @@ public class MYOActivity extends AppCompatActivity {
         });
 
 
-        sendButton = findViewById(R.id.submitbtn);
-        requestQueue = Volley.newRequestQueue(this);
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        sendButton = findViewById(R.id.Sendbtn);
-        requestQueue = Volley.newRequestQueue(this);
-
-        sendButton.setOnClickListener(new View.OnClickListener() {
+        Button cocktailbtn = findViewById(R.id.Sendbtn);
+        cocktailbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //sendDataToAPI(progress)
-                String Total = Pump1 + Pump2 + Pump3 + Pump4 + Pump5 + Pump6;
-                Toast.makeText(MYOActivity.this, Total, Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+
+               //showPopupDialog();
+                int durationInMillis = 14000; // 6 seconds
+                Shots[0] = durationInMillis * Pump1;
+                Shots[1] = durationInMillis * Pump2;
+                Shots[2] = durationInMillis * Pump3;
+                Shots[3] = durationInMillis * Pump4;
+                Shots[4] = durationInMillis * Pump5;
+                Shots[5] = durationInMillis * Pump6;
+
+                //to stop glitches
+                for(int i = 0; i > Shots.length; i++){
+                    if (Shots[i] == 0){
+                        Shots[i] = 10;
+                    }
+                }
+                //if (Shots[0] == 0){Shots[0] = 10;}
+                //if (Shots[1] == 0){Shots[1] = 10;}
+                //if (Shots[2] == 0){Shots[2] = 10;}
+                //if (Shots[3] == 0){Shots[3] = 10;}
+                //if (Shots[4] == 0){Shots[4] = 10;}
+                //if (Shots[5] == 0){Shots[5] = 10;}
+
+
+                //tempoary
+                String hi = String.valueOf(Shots[0]) + String.valueOf(Shots[1]) + String.valueOf(Shots[2]) + String.valueOf(Shots[3]) + String.valueOf(Shots[4]) + String.valueOf(Shots[5]) ;
+                Toast.makeText(MYOActivity.this, hi , Toast.LENGTH_SHORT).show();
+
+
+                // Initialize CountDownTimer
+                countDownTimer = new CountDownTimer(Shots[0], 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {}
+                    @Override
+                    public void onFinish() {OffPumps = 1; onButtonClick();}
+                };
+                countDownTimer2 = new CountDownTimer(Shots[1], 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {}
+                    @Override
+                    public void onFinish() {OffPumps = 2; onButtonClick();}
+                };
+                countDownTimer3 = new CountDownTimer(Shots[2], 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {}
+                    @Override
+                    public void onFinish() {OffPumps = 3; onButtonClick();}
+                };
+                countDownTimer4 = new CountDownTimer(Shots[3], 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {}
+                    @Override
+                    public void onFinish() {OffPumps = 4; onButtonClick();}
+                };
+                countDownTimer5 = new CountDownTimer(Shots[4], 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {}
+                    @Override
+                    public void onFinish() {OffPumps = 5; onButtonClick();}
+                };
+                countDownTimer6 = new CountDownTimer(Shots[5], 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {}
+                    @Override
+                    public void onFinish() {OffPumps = 6; onButtonClick();}
+                };
+
+                // Start the timer
+                OnPumps = 1;
+                if (Shots[0] != 0){countDownTimer.start(); onButtonClick2();}
+
+                OnPumps= 2;
+                if (Shots[1] != 0){countDownTimer2.start(); onButtonClick2();}
+
+                OnPumps= 3;
+                if (Shots[2] != 0){countDownTimer3.start(); onButtonClick2();}
+
+                OnPumps= 4;
+                if (Shots[3] != 0){countDownTimer4.start(); onButtonClick2();}
+
+                OnPumps= 5;
+                if (Shots[4] != 0){countDownTimer5.start(); onButtonClick2();}
+
+                OnPumps= 6;
+                if (Shots[5] != 0){countDownTimer6.start(); onButtonClick2();}
+
             }
-        });
-    }
-    private void sendDataToAPI(int value) {
-        JSONObject requestData = new JSONObject();
-        try {
-            requestData.put("value", value);
-        } catch (JSONException e) {
-            e.printStackTrace();
+
+        private void showPopupDialog() {
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MYOActivity.this);
+            View dialogView = getLayoutInflater().inflate(R.layout.shotpopup, null);
+            dialogBuilder.setView(dialogView);
+
+            //TextView dialogText = dialogView.findViewById(R.id.dialog_text);
+            //Button closeButton = dialogView.findViewById(R.id.close_button);
+
+            final AlertDialog alertDialog = dialogBuilder.create();
+
+            //closeButton.setOnClickListener(new View.OnClickListener() {
+           //     @Override
+           //     public void onClick(View v) {
+            //        alertDialog.dismiss();
+            //    }
+           // });
+
+            alertDialog.show();
         }
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.33:8000/book/1", requestData,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // Handle API response
-                        Toast.makeText(MYOActivity.this, "API Response: " + response.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Handle errors
-                        Toast.makeText(MYOActivity.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        requestQueue.add(request);
-        */
-
-
+        });
+    }
 }

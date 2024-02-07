@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button cocktailbtn = findViewById(R.id.databasebtn);
-        cocktailbtn.setOnClickListener(new View.OnClickListener() {
+        Button Databasebtn = findViewById(R.id.databasebtn);
+        Databasebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

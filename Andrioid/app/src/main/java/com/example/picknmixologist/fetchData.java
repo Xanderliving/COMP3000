@@ -14,36 +14,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class fetchData extends AsyncTask<Void, Void, String> {
-    
-    private WeakReference<TextView> statusTextView;
 
+    private WeakReference<TextView> statusTextView;
+    public int[] Shots = {1,2,3,4,5,6};
     fetchData(TextView statusTextView) {
         this.statusTextView = new WeakReference<>(statusTextView);
     }
 
     @Override
     protected String doInBackground(Void... voids) {
-        try {
-            URL url = new URL("http://172.20.10.4:8000/book/1");
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-            try {
-                InputStream in = urlConnection.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                StringBuilder stringBuilder = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    stringBuilder.append(line).append("\n");
-                }
-                return stringBuilder.toString();
-            } finally {
-                urlConnection.disconnect();
-            }
-        } catch (IOException e) {
-            Log.e("HTTP Request", "Error", e);
-            return null;
-        }
+        return null;
     }
+
 
     @Override
     protected void onPostExecute(String result) {
@@ -61,7 +43,7 @@ public class fetchData extends AsyncTask<Void, Void, String> {
                     Log.e("JSON Parsing", "Error", e);
                 }
             } else {
-                textView.setText("Not Connected.");
+                textView.setText("Shots: 0");
             }
         }
     }
