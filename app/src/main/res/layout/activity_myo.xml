@@ -35,20 +35,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_000_f_95910754_cuyokd7ua39farn37qlcb6ixl8ziyim1" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="618dp"
-        android:layout_height="944dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754"
-        app:srcCompat="@drawable/picture3" />
-
     <!--Slider for pump2-->
 
     <!--Slider for pump3-->
 
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="618dp"
+        android:layout_height="944dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.725"
+        app:srcCompat="@drawable/picture3" />
 
     <TextView
         android:id="@+id/Pump1Shots"
