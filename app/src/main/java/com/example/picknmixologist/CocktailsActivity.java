@@ -22,38 +22,8 @@ public class CocktailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cocktails);
 
-        Button dropdownButton1 = findViewById(R.id.dropdown_button1);
-        Button dropdownButton2 = findViewById(R.id.dropdown_button2);
-        Button dropdownButton3 = findViewById(R.id.dropdown_button3);
-        Button dropdownButton4 = findViewById(R.id.dropdown_button4);
 
-        dropdownButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDropdownMenu(v);
-            }
-        });
 
-        dropdownButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDropdownMenu(v);
-            }
-        });
-
-        dropdownButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDropdownMenu(v);
-            }
-        });
-
-        dropdownButton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDropdownMenu(v);
-            }
-        });
     }
     private void showDropdownMenu(View anchorView) {
         View popupView = getLayoutInflater().inflate(R.layout.dropdown_items, null);

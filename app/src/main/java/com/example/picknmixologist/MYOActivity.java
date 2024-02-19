@@ -3,13 +3,7 @@ package com.example.picknmixologist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import android.os.CountDownTimer;
@@ -19,19 +13,21 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 public class MYOActivity extends AppCompatActivity {
     private int url2;
     private SeekBar slider;
 
-    private CountDownTimer countDownTimer, countDownTimer2, countDownTimer3, countDownTimer4, countDownTimer5, countDownTimer6;
+    private CountDownTimer countDownTimer1, countDownTimer2, countDownTimer3, countDownTimer4, countDownTimer5, countDownTimer6;
     public int[] Shots = {0,0,0,0,0,0};
+    private TextView Shots1;
     private TextView progressText, progressText2, progressText3, progressText4, progressText5, progressText6;
-    private int Pump1, Pump2, Pump3, Pump4, Pump5, Pump6;
+    private int Pump1;
+    private int Pump2;
+    private int Pump3;
+    private int Pump4;
+    private int Pump5;
+    private int Pump6;
 
     public int OnPumps = 0;
     public int OffPumps = 0;
@@ -49,8 +45,10 @@ public class MYOActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myo);
 
+
+
         //Slider for pump1
-        slider = findViewById(R.id.Pump1);
+        slider = findViewById(R.id.Pump1s);
         progressText = findViewById(R.id.Pump1Shots);
         TextView Shot1 = findViewById(R.id.Pump1Shots);
         fetchData myAsyncTask = new fetchData(Shot1);
@@ -75,7 +73,7 @@ public class MYOActivity extends AppCompatActivity {
         });
 
         //Slider for pump2
-        slider = findViewById(R.id.Pump2);
+        slider = findViewById(R.id.Pump2s);
         progressText2 = findViewById(R.id.Pump2Shots);
         TextView Shot2 = findViewById(R.id.Pump2Shots);
         fetchData Task2 = new fetchData(Shot2);
@@ -100,7 +98,7 @@ public class MYOActivity extends AppCompatActivity {
         });
 
         //Slider for pump3
-        slider = findViewById(R.id.Pump3);
+        slider = findViewById(R.id.Pump3s);
         progressText3 = findViewById(R.id.Pump3Shots);
         TextView Shot3 = findViewById(R.id.Pump3Shots);
         fetchData Task3 = new fetchData(Shot3);
@@ -125,7 +123,7 @@ public class MYOActivity extends AppCompatActivity {
         });
 
         //Slider for pump4
-        slider = findViewById(R.id.Pump4);
+        slider = findViewById(R.id.Pump4s);
         progressText4 = findViewById(R.id.Pump4Shots);
         TextView Shot4 = findViewById(R.id.Pump4Shots);
         fetchData Task4 = new fetchData(Shot4);
@@ -150,7 +148,7 @@ public class MYOActivity extends AppCompatActivity {
         });
 
         //Slider for pump5
-        slider = findViewById(R.id.Pump5);
+        slider = findViewById(R.id.Pump5s);
         progressText5 = findViewById(R.id.Pump5Shots);
         TextView Shot5 = findViewById(R.id.Pump5Shots);
         fetchData Task5 = new fetchData(Shot5);
@@ -176,7 +174,7 @@ public class MYOActivity extends AppCompatActivity {
         });
 
         //Slider for pump6
-        slider = findViewById(R.id.Pump6);
+        slider = findViewById(R.id.Pump6s);
         progressText6 = findViewById(R.id.Pump6Shots);
         TextView Shot6 = findViewById(R.id.Pump6Shots);
         fetchData Task6 = new fetchData(Shot6);
@@ -201,13 +199,12 @@ public class MYOActivity extends AppCompatActivity {
             }
         });
 
-
         Button cocktailbtn = findViewById(R.id.Sendbtn);
         cocktailbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-               //showPopupDialog();
+
                 int durationInMillis = 14000; // 6 seconds
                 Shots[0] = durationInMillis * Pump1;
                 Shots[1] = durationInMillis * Pump2;
@@ -222,12 +219,8 @@ public class MYOActivity extends AppCompatActivity {
                         Shots[i] = 10;
                     }
                 }
-                //if (Shots[0] == 0){Shots[0] = 10;}
-                //if (Shots[1] == 0){Shots[1] = 10;}
-                //if (Shots[2] == 0){Shots[2] = 10;}
-                //if (Shots[3] == 0){Shots[3] = 10;}
-                //if (Shots[4] == 0){Shots[4] = 10;}
-                //if (Shots[5] == 0){Shots[5] = 10;}
+
+                showPopupDialog();
 
 
                 //tempoary
@@ -236,7 +229,7 @@ public class MYOActivity extends AppCompatActivity {
 
 
                 // Initialize CountDownTimer
-                countDownTimer = new CountDownTimer(Shots[0], 1000) {
+                countDownTimer1 = new CountDownTimer(Shots[0], 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {}
                     @Override
@@ -275,7 +268,7 @@ public class MYOActivity extends AppCompatActivity {
 
                 // Start the timer
                 OnPumps = 1;
-                if (Shots[0] != 0){countDownTimer.start(); onButtonClick2();}
+                if (Shots[0] != 0){countDownTimer1.start(); onButtonClick2();}
 
                 OnPumps= 2;
                 if (Shots[1] != 0){countDownTimer2.start(); onButtonClick2();}
@@ -294,26 +287,72 @@ public class MYOActivity extends AppCompatActivity {
 
             }
 
+        @SuppressLint("MissingInflatedId")
         private void showPopupDialog() {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MYOActivity.this);
             View dialogView = getLayoutInflater().inflate(R.layout.shotpopup, null);
             dialogBuilder.setView(dialogView);
-
-            //TextView dialogText = dialogView.findViewById(R.id.dialog_text);
-            //Button closeButton = dialogView.findViewById(R.id.close_button);
+            Shots1 = dialogView.findViewById(R.id.Pump1s);
+            Shots1.setText(String.valueOf(Pump1));
+            Shots1 = dialogView.findViewById(R.id.Pump2s);
+            Shots1.setText(String.valueOf(Pump2));
+            Shots1 = dialogView.findViewById(R.id.Pump3s);
+            Shots1.setText(String.valueOf(Pump3));
+            Shots1 = dialogView.findViewById(R.id.Pump4s);
+            Shots1.setText(String.valueOf(Pump4));
+            Shots1 = dialogView.findViewById(R.id.Pump5s);
+            Shots1.setText(String.valueOf(Pump5));
+            Shots1 = dialogView.findViewById(R.id.Pump6s);
+            Shots1.setText(String.valueOf(Pump6));
 
             final AlertDialog alertDialog = dialogBuilder.create();
+            Button closeButton = dialogView.findViewById(R.id.button1);
+            closeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
 
-            //closeButton.setOnClickListener(new View.OnClickListener() {
-           //     @Override
-           //     public void onClick(View v) {
-            //        alertDialog.dismiss();
-            //    }
-           // });
+            Button CreateButton = dialogView.findViewById(R.id.button2);
+            CreateButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                    showPopupLoading();
+                }
+            });
 
             alertDialog.show();
-        }
 
+
+
+        }
+            @SuppressLint("MissingInflatedId")
+            private void showPopupLoading() {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MYOActivity.this);
+                View dialogView = getLayoutInflater().inflate(R.layout.loadingpopup, null);
+                dialogBuilder.setView(dialogView);
+
+                final AlertDialog alertDialog = dialogBuilder.create();
+
+                alertDialog.show();
+
+                CountDownTimer[] countDownTimers = {countDownTimer1, countDownTimer2, countDownTimer3, countDownTimer4, countDownTimer5, countDownTimer6};
+                for (int i = 0; i < countDownTimers.length; i++) {
+                    if (countDownTimers[i] != Off) {
+                        continue; // Skip the rest of the loop body if the timer is on
+                    }
+
+                    // Your logic here for when the timer is off
+                }
+
+                    alertDialog.dismiss();
+
+            }
         });
+
+
     }
+
 }

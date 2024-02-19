@@ -65,24 +65,27 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/Pump1s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="Shots1"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="8dp"/>
+                    android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/Pump2s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="Shots2"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="8dp"/>
+                    android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/Pump3s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Shots3"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
@@ -117,24 +120,27 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/Pump4s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="Shots4"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="8dp"/>
+                    android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/Pump5s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                        android:text="Shots5"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Shots5"
+                    android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/Pump6s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Shots6"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
 
