@@ -11,6 +11,8 @@ import android.widget.Button;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        for(int i = 1; i < 6; i++){
+            PutRequest.changeStatusOff(MainActivity.this, i);
+        };
         Button MYObtn = findViewById(R.id.naviagtebtn);
         MYObtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button Settingbtn = findViewById(R.id.Settingbtn);
+        Settingbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 }

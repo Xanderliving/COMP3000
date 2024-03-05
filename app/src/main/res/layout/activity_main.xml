@@ -39,5 +39,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.272" />
 
+    <Button
+        android:id="@+id/Settingbtn"
+        android:layout_width="247dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="468dp"
+        android:text="Settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

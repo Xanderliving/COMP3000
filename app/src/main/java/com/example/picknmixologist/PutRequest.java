@@ -17,16 +17,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PutRequest extends AppCompatActivity {
-
+    public static String[] Drinks = {"place", "Vodka" ,"Gin" ,"Rum" ,"Tequila" ,"Coke", "Lemonade"};
     private static final String BASE_URL = "http://172.20.10.4:8000/book/";
 
     public static void changeStatusOff(Context context, int Pumps) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = BASE_URL + Pumps;
-
+        String Drink = Drinks[Pumps];
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("id", Pumps);
+            jsonBody.put("name", Drink);
             jsonBody.put("status", "Off");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -53,10 +54,11 @@ public class PutRequest extends AppCompatActivity {
     public static void changeStatusOn(Context context, int Pumps) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = BASE_URL + Pumps;
-
+        String Drink = Drinks[Pumps];
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("id", Pumps);
+            jsonBody.put("name", Drink);
             jsonBody.put("status", "On");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -78,4 +80,6 @@ public class PutRequest extends AppCompatActivity {
         });
         queue.add(jsonObjectRequest);
     }
+
+
 }

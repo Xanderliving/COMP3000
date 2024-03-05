@@ -256,18 +256,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Vodkatxt"
+        android:id="@+id/Pump1txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="144dp"
-        android:text=" Vodka "
         android:fontFamily="sans-serif-black"
-        android:textColor="#FFFFFF"
         android:shadowColor="#111111"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="70"
+        android:text=" Pump1 "
+        android:textColor="#FFFFFF"
         android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.092"
@@ -275,7 +275,7 @@
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
-        android:id="@+id/Gintxt"
+        android:id="@+id/Pump2txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
@@ -285,7 +285,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="70"
-        android:text=" Gin "
+        android:text=" Pump2 "
         android:textColor="#FFFFFF"
         android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
@@ -294,17 +294,17 @@
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
-        android:id="@+id/Rumtxt"
+        android:id="@+id/Pump3txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="284dp"
         android:fontFamily="sans-serif-black"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="70"
-        android:text=" Rum "
+        android:text="Pump3"
         android:textColor="#FFFFFF"
         android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
@@ -313,17 +313,17 @@
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
-        android:id="@+id/Tequilatxt"
+        android:id="@+id/Pump4txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="356dp"
         android:fontFamily="sans-serif-black"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="70"
-        android:text=" Tequila "
+        android:text="Pump4"
         android:textColor="#FFFFFF"
         android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
@@ -332,7 +332,7 @@
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
-        android:id="@+id/Coketxt"
+        android:id="@+id/Pump5txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
@@ -342,7 +342,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="70"
-        android:text=" Coke "
+        android:text="Pump5"
         android:textColor="#FFFFFF"
         android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
@@ -351,7 +351,7 @@
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
-        android:id="@+id/Lemonadetxt"
+        android:id="@+id/Pump6txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
@@ -361,7 +361,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="70"
-        android:text=" Lemonade "
+        android:text="Pump6"
         android:textColor="#FFFFFF"
         android:textSize="100px"
         app:layout_constraintEnd_toEndOf="parent"
