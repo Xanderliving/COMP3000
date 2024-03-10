@@ -230,7 +230,7 @@ public class MYOActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                int durationInMillis = 14000; // 6 seconds
+                int durationInMillis = 15000; // 6 seconds
                 Shots[0] = durationInMillis * Pump1;
                 Shots[1] = durationInMillis * Pump2;
                 Shots[2] = durationInMillis * Pump3;

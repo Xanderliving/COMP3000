@@ -20,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        for(int i = 1; i < 6; i++){
-            PutRequest.changeStatusOff(MainActivity.this, i);
-        };
+
         Button MYObtn = findViewById(R.id.naviagtebtn);
         MYObtn.setOnClickListener(new View.OnClickListener() {
             @Override

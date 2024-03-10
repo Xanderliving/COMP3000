@@ -1,7 +1,8 @@
 package com.example.picknmixologist;
 
-import android.content.Intent;
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Set;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -30,11 +33,9 @@ public class SettingsActivity extends AppCompatActivity {
         NewDrink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView NewDrink = findViewById(R.id.newDrinktxt);
-                String NewDrinks = NewDrink.getText().toString();
-                PutRequest.Drinks[option] = NewDrinks;
-                PutRequest.changeStatusOff(SettingsActivity.this, option);
 
+                //PutRequest.changeStatusOff(SettingsActivity.this, option);
+                showPopupnew();
 
             }
         });
@@ -60,7 +61,67 @@ public class SettingsActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
                 // Do nothing
             }
+
         });
 
+
     }
+    private void showPopupnew () {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
+        View dialogView = getLayoutInflater().inflate(R.layout.newdrinkpopup, null);
+        dialogBuilder.setView(dialogView);
+        final AlertDialog alertDialogs = dialogBuilder.create();
+        alertDialogs.show();
+
+        Button CreateButton = dialogView.findViewById(R.id.changedbtn);
+        CreateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialogs.dismiss();
+                showPopupLoading();
+            }
+        });
+
+
+    }
+    private void showPopupLoading() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
+        View dialogView = getLayoutInflater().inflate(R.layout.loadingpopup, null);
+        dialogBuilder.setView(dialogView);
+        final AlertDialog alertDialogs = dialogBuilder.create();
+        alertDialogs.show();
+
+        int timer = 0;
+        if(option == 1){timer = 7400;}
+        if(option == 2){timer = 8300;}
+        if(option == 3){timer = 7600;}
+        if(option == 4){timer = 7400;}
+        if(option == 5){timer = 8200;}
+        if(option == 6){timer = 7800;}
+
+
+        CountDownTimer countDownTimer1 = new CountDownTimer(timer, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+
+                PutRequest.changeStatusOff(SettingsActivity.this, option);
+                alertDialogs.dismiss();
+                Toast.makeText(SettingsActivity.this, "Your Drink is Ready", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+            }
+        };
+        TextView NewDrink = findViewById(R.id.newDrinktxt);
+        String NewDrinks = NewDrink.getText().toString();
+        PutRequest.Drinks[option] = NewDrinks;
+        PutRequest.changeStatusOn(SettingsActivity.this, option);
+        countDownTimer1.start();
+
+
+    }
+
 }

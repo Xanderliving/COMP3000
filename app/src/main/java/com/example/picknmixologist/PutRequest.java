@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class PutRequest extends AppCompatActivity {
     public static String[] Drinks = {"place", "Vodka" ,"Gin" ,"Rum" ,"Tequila" ,"Coke", "Lemonade"};
-    private static final String BASE_URL = "http://172.20.10.4:8000/book/";
+    private static final String BASE_URL = "http://192.168.0.46:8000/book/";
 
     public static void changeStatusOff(Context context, int Pumps) {
         RequestQueue queue = Volley.newRequestQueue(context);
