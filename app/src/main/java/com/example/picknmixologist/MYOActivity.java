@@ -4,6 +4,7 @@ package com.example.picknmixologist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.os.Bundle;
 
 import android.os.CountDownTimer;
@@ -40,12 +41,12 @@ public class MYOActivity extends AppCompatActivity {
 
 
 
+    //Turns off the pump
     public void onButtonClick() {
         PutRequest.changeStatusOff(this, OffPumps);
         Pumps -=1;
-        System.out.println("The pump is: " + Pumps);
-
     }
+    //Turns On the Pump
     public void onButtonClick2() {
         PutRequest.changeStatusOn(this, OnPumps);
         Pumps +=1;
@@ -56,6 +57,7 @@ public class MYOActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myo);
 
+        //Gets data on what the liquids are in the machine and displays
         String[] Drinks = PutRequest.Drinks;
         TextView Pump1txt = findViewById(R.id.Pump1txt);
         Pump1txt.setText(Drinks[1]);
@@ -70,9 +72,9 @@ public class MYOActivity extends AppCompatActivity {
         TextView Pump6txt = findViewById(R.id.Pump6txt);
         Pump6txt.setText(Drinks[6]);
 
+        //This section goes through all the sliders
 
-
-        //Slider for pump1
+        //Slider for pump 1
         slider = findViewById(R.id.Pump1s);
         progressText = findViewById(R.id.Pump1Shots);
         TextView Shot1 = findViewById(R.id.Pump1Shots);
@@ -81,20 +83,14 @@ public class MYOActivity extends AppCompatActivity {
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //Update the TextView to show the current progress
+
                 progressText.setText("Shots: " + progress);
                 Pump1 = progress;
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking starts
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking stops
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         //Slider for pump2
@@ -106,20 +102,13 @@ public class MYOActivity extends AppCompatActivity {
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //Update the TextView to show the current progress
                 progressText2.setText("Shots: " + progress);
                 Pump2 = progress;
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking starts
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking stops
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         //Slider for pump3
@@ -131,20 +120,13 @@ public class MYOActivity extends AppCompatActivity {
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //Update the TextView to show the current progress
                 progressText3.setText("Shots: " + progress);
                 Pump3 = progress;
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking starts
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking stops
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         //Slider for pump4
@@ -156,20 +138,13 @@ public class MYOActivity extends AppCompatActivity {
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //Update the TextView to show the current progress
                 progressText4.setText("Shots: " + progress);
                 Pump4 = progress;
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking starts
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking stops
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         //Slider for pump5
@@ -181,21 +156,13 @@ public class MYOActivity extends AppCompatActivity {
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //Update the TextView to show the current progress
                 progressText5.setText("Shots: " + progress);
                 Pump5 = progress;
-
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking starts
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking stops
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         //Slider for pump6
@@ -207,29 +174,24 @@ public class MYOActivity extends AppCompatActivity {
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //Update the TextView to show the current progress
                 progressText6.setText("Shots: " + progress);
                 Pump6 = progress;
-
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking starts
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do something when tracking stops
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
+
+
+        //When the button is pressed, it gathers the data from the slider
         Button cocktailbtn = findViewById(R.id.Sendbtn);
         cocktailbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
+                //Sets the duration by * how long 1 shot is
                 int durationInMillis = 15000; // 6 seconds
                 Shots[0] = durationInMillis * Pump1;
                 Shots[1] = durationInMillis * Pump2;
@@ -247,19 +209,15 @@ public class MYOActivity extends AppCompatActivity {
 
                 showPopupDialog();
 
-
-                //tempoary
-                String hi = String.valueOf(Shots[0]) + String.valueOf(Shots[1]) + String.valueOf(Shots[2]) + String.valueOf(Shots[3]) + String.valueOf(Shots[4]) + String.valueOf(Shots[5]) ;
-                Toast.makeText(MYOActivity.this, hi , Toast.LENGTH_SHORT).show();
-
-
             }
 
+            //Shot Display popup
         @SuppressLint("MissingInflatedId")
         private void showPopupDialog() {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MYOActivity.this);
             View dialogView = getLayoutInflater().inflate(R.layout.shotpopup, null);
 
+            //Gathers the data from the users input and displays it in a table
             dialogBuilder.setView(dialogView);
             Shots1 = dialogView.findViewById(R.id.Pump1s);
             Shots1.setText(String.valueOf(Pump1));
@@ -273,10 +231,23 @@ public class MYOActivity extends AppCompatActivity {
             Shots1.setText(String.valueOf(Pump5));
             Shots1 = dialogView.findViewById(R.id.Pump6s);
             Shots1.setText(String.valueOf(Pump6));
-
+            Shots1 = dialogView.findViewById(R.id.Pump1);
+            Shots1.setText(String.valueOf(Pump1txt.getText()));
+            Shots1 = dialogView.findViewById(R.id.Pump2);
+            Shots1.setText(String.valueOf(Pump2txt.getText()));
+            Shots1 = dialogView.findViewById(R.id.Pump3);
+            Shots1.setText(String.valueOf(Pump3txt.getText()));
+            Shots1 = dialogView.findViewById(R.id.Pump4);
+            Shots1.setText(String.valueOf(Pump4txt.getText()));
+            Shots1 = dialogView.findViewById(R.id.Pump5);
+            Shots1.setText(String.valueOf(Pump5txt.getText()));
+            Shots1 = dialogView.findViewById(R.id.Pump6);
+            Shots1.setText(String.valueOf(Pump6txt.getText()));
 
             final AlertDialog alertDialog = dialogBuilder.create();
             alertDialog.show();
+
+            //Button to close the popup
             Button closeButton = dialogView.findViewById(R.id.button1);
             closeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -285,28 +256,27 @@ public class MYOActivity extends AppCompatActivity {
                 }
             });
 
+            //When button is pressed it dismisses the shot pop up and show loading popup
             Button CreateButton = dialogView.findViewById(R.id.button2);
             CreateButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    alertDialog.dismiss();
-                    showPopupLoading();
-                }
+                public void onClick(View v) {showPopupLoading();alertDialog.dismiss();}
             });
-
-
-
-
-
         }
+
+        //Loading Popup
             @SuppressLint("MissingInflatedId")
             private void showPopupLoading() {
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MYOActivity.this);
                 View dialogView = getLayoutInflater().inflate(R.layout.loadingpopup, null);
                 dialogBuilder.setView(dialogView);
+                //Stops user from clicking out the popup
+                dialogBuilder.setCancelable(false);
                 final AlertDialog alertDialogs = dialogBuilder.create();
                 alertDialogs.show();
 
+
+                //All the timer commands
                 countDownTimer1 = new CountDownTimer(Shots[0], 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {}
@@ -344,6 +314,7 @@ public class MYOActivity extends AppCompatActivity {
                     public void onFinish() {OffPumps = 6; onButtonClick(); if(Pumps == 0){alertDialogs.dismiss(); Toast.makeText(MYOActivity.this, "Your Drink is Ready" , Toast.LENGTH_SHORT).show();}}
                 };
 
+                //Timers set off if they are needed
                 OnPumps = 1;
                 if (Shots[0] != 0){countDownTimer1.start(); onButtonClick2();}
 
@@ -363,6 +334,8 @@ public class MYOActivity extends AppCompatActivity {
                 if (Shots[5] != 0){countDownTimer6.start(); onButtonClick2();}
 
 
+                //error handling if user didn't input any measurements
+                if(Pumps == 0){alertDialogs.dismiss(); Toast.makeText(MYOActivity.this, "You didn't input any measurements ", Toast.LENGTH_SHORT).show();}
 
             }
 
