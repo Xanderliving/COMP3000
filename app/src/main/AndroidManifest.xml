@@ -25,6 +25,7 @@
         <activity android:name=".MYOActivity"/>
         <activity android:name=".CocktailsActivity"/>
         <activity android:name=".SettingsActivity"/>
+        <activity android:name=".SettingsPage"/>
 
     </application>
 

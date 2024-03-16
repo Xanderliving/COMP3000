@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,10 +21,12 @@ import java.util.Set;
 
 public class SettingsActivity extends AppCompatActivity {
     int option = 1;
+    int Change = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -50,13 +53,68 @@ public class SettingsActivity extends AppCompatActivity {
                 //Toast.makeText(SettingsActivity.this, "Selected: " + selectedOption, Toast.LENGTH_SHORT).show();
                 String[] Drinks = PutRequest.Drinks;
                 TextView OldDrink = findViewById(R.id.oldDrinktxt);
-                if ("Pump 1".equals(selectedOption)) {OldDrink.setText(Drinks[1]); option = 1;}
-                if ("Pump 2".equals(selectedOption)) {OldDrink.setText(Drinks[2]); option = 2;}
-                if ("Pump 3".equals(selectedOption)) {OldDrink.setText(Drinks[3]); option = 3;}
-                if ("Pump 4".equals(selectedOption)) {OldDrink.setText(Drinks[4]); option = 4;}
-                if ("Pump 5".equals(selectedOption)) {OldDrink.setText(Drinks[5]); option = 5;}
-                if ("Pump 6".equals(selectedOption)) {OldDrink.setText(Drinks[6]); option = 6;}
+                View dotPump1 = findViewById(R.id.DotPump1);
+                View dotPump2 = findViewById(R.id.DotPump2);
+                View dotPump3 = findViewById(R.id.DotPump3);
+                View dotPump4 = findViewById(R.id.DotPump4);
+                View dotPump5 = findViewById(R.id.DotPump5);
+                View dotPump6 = findViewById(R.id.DotPump6);
 
+                if ("Pump 1".equals(selectedOption)) {
+                    OldDrink.setText(Drinks[1]);
+                    option = 1;
+                    dotPump1.setVisibility(View.VISIBLE);
+                    dotPump2.setVisibility(View.INVISIBLE);
+                    dotPump3.setVisibility(View.INVISIBLE);
+                    dotPump4.setVisibility(View.INVISIBLE);
+                    dotPump5.setVisibility(View.INVISIBLE);
+                    dotPump6.setVisibility(View.INVISIBLE);
+                } else if ("Pump 2".equals(selectedOption)) {
+                    OldDrink.setText(Drinks[2]);
+                    option = 2;
+                    dotPump1.setVisibility(View.INVISIBLE);
+                    dotPump2.setVisibility(View.VISIBLE);
+                    dotPump3.setVisibility(View.INVISIBLE);
+                    dotPump4.setVisibility(View.INVISIBLE);
+                    dotPump5.setVisibility(View.INVISIBLE);
+                    dotPump6.setVisibility(View.INVISIBLE);
+                } else if ("Pump 3".equals(selectedOption)) {
+                    OldDrink.setText(Drinks[3]);
+                    option = 3;
+                    dotPump1.setVisibility(View.INVISIBLE);
+                    dotPump2.setVisibility(View.INVISIBLE);
+                    dotPump3.setVisibility(View.VISIBLE);
+                    dotPump4.setVisibility(View.INVISIBLE);
+                    dotPump5.setVisibility(View.INVISIBLE);
+                    dotPump6.setVisibility(View.INVISIBLE);
+                } else if ("Pump 4".equals(selectedOption)) {
+                    OldDrink.setText(Drinks[4]);
+                    option = 4;
+                    dotPump1.setVisibility(View.INVISIBLE);
+                    dotPump2.setVisibility(View.INVISIBLE);
+                    dotPump3.setVisibility(View.INVISIBLE);
+                    dotPump4.setVisibility(View.VISIBLE);
+                    dotPump5.setVisibility(View.INVISIBLE);
+                    dotPump6.setVisibility(View.INVISIBLE);
+                } else if ("Pump 5".equals(selectedOption)) {
+                    OldDrink.setText(Drinks[5]);
+                    option = 5;
+                    dotPump1.setVisibility(View.INVISIBLE);
+                    dotPump2.setVisibility(View.INVISIBLE);
+                    dotPump3.setVisibility(View.INVISIBLE);
+                    dotPump4.setVisibility(View.INVISIBLE);
+                    dotPump5.setVisibility(View.VISIBLE);
+                    dotPump6.setVisibility(View.INVISIBLE);
+                } else if ("Pump 6".equals(selectedOption)) {
+                    OldDrink.setText(Drinks[6]);
+                    option = 6;
+                    dotPump1.setVisibility(View.INVISIBLE);
+                    dotPump2.setVisibility(View.INVISIBLE);
+                    dotPump3.setVisibility(View.INVISIBLE);
+                    dotPump4.setVisibility(View.INVISIBLE);
+                    dotPump5.setVisibility(View.INVISIBLE);
+                    dotPump6.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -72,6 +130,7 @@ public class SettingsActivity extends AppCompatActivity {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
         View dialogView = getLayoutInflater().inflate(R.layout.newdrinkpopup, null);
         dialogBuilder.setView(dialogView);
+        dialogBuilder.setCancelable(false);
         final AlertDialog alertDialogs = dialogBuilder.create();
         alertDialogs.show();
 
@@ -88,8 +147,10 @@ public class SettingsActivity extends AppCompatActivity {
     }
     private void showPopupLoading() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
-        View dialogView = getLayoutInflater().inflate(R.layout.loadingpopup, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.changingdrinkpopup, null);
+        View Popup = getLayoutInflater().inflate(R.layout.newdrinkpopup, null);
         dialogBuilder.setView(dialogView);
+        dialogBuilder.setCancelable(false);
         final AlertDialog alertDialogs = dialogBuilder.create();
         alertDialogs.show();
 
@@ -105,18 +166,24 @@ public class SettingsActivity extends AppCompatActivity {
         CountDownTimer countDownTimer1 = new CountDownTimer(timer, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-            }
 
+            }
             @Override
             public void onFinish() {
 
                 PutRequest.changeStatusOff(SettingsActivity.this, option);
                 alertDialogs.dismiss();
-                Toast.makeText(SettingsActivity.this, "Your Drink is Ready", Toast.LENGTH_SHORT).show();
-                finish();
-                startActivity(getIntent());
+                if(Change ==2){
+                    Toast.makeText(SettingsActivity.this, "Drink has been changed", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(getIntent());
+                }else {
+                    PopupWater();
+                }
             }
         };
+
+
         TextView NewDrink = findViewById(R.id.newDrinktxt);
         String NewDrinks = NewDrink.getText().toString();
         PutRequest.Drinks[option] = NewDrinks;
@@ -124,6 +191,30 @@ public class SettingsActivity extends AppCompatActivity {
         countDownTimer1.start();
 
 
+    }
+
+    private void PopupWater () {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
+        View dialogView = getLayoutInflater().inflate(R.layout.newdrinkpopup, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setCancelable(false);
+        final AlertDialog alertDialogs = dialogBuilder.create();
+        alertDialogs.show();
+        TextView Hi = dialogView.findViewById(R.id.Description);
+        Hi.setText("Place the tube into the bottle of water");
+        Change += 1;
+
+        if (Change == 2){
+            Hi.setText("Place the tube into the new bottle");
+        }
+        Button CreateButton = dialogView.findViewById(R.id.changedbtn);
+        CreateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialogs.dismiss();
+                showPopupLoading();
+            }
+        });
     }
 
 }

@@ -8,4 +8,25 @@
         <item>Pump 5</item>
         <item>Pump 6</item>
     </string-array>
+
+    <string name="machine">Machine</string>
+    <string-array name="machine_categories">
+        <item>Machine</item>
+        <item>Configuration</item>
+        <item>What is it</item>
+    </string-array>
+
+    <string name="help">Help</string>
+    <string-array name="help_categories">
+        <item>Help</item>
+        <item>Cant connect to machine</item>
+        <item>Machine wont stop</item>
+    </string-array>
+
+    <string name="account">Account</string>
+    <string-array name="account_categories">
+        <item>Account</item>
+        <item>Account</item>
+        <item>Log Out</item>
+    </string-array>
 </resources>

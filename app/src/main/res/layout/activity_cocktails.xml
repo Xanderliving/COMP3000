@@ -55,7 +55,6 @@ tools:context=".MainActivity">
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="50"
-
         android:text="Cocktails"
         android:textAlignment="center"
         android:textColor="#FAF3F3"

@@ -6,23 +6,31 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="394dp"
-        android:layout_height="182dp"
+        android:layout_width="406dp"
+        android:layout_height="107dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="1dp">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/Description"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:text="Please change the bottle" />
+            android:layout_height="35dp"
+            android:text="Please take the tube out the bottle"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/changedbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="219dp"
             android:layout_height="wrap_content"
-            android:text="Changed" />
+            android:layout_gravity="center"
+            android:background="@drawable/createbtn"
+            android:text="Changed"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:backgroundTint="#7BED6F" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,7 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Popup background -->
     <LinearLayout
@@ -163,15 +163,23 @@
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/createbtn"
                 android:text="Close"
-                android:layout_marginEnd="8dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                app:backgroundTint="#EC816D" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/createbtn"
                 android:text="Create"
-                android:layout_marginEnd="8dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                app:backgroundTint="#7BED6F" />
 
         </LinearLayout>
     </LinearLayout>

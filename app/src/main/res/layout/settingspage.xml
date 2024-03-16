@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
 
     <View
@@ -38,7 +37,7 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -54,8 +53,7 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="50"
-
-        android:text="Home"
+        android:text="Cocktails"
         android:textAlignment="center"
         android:textColor="#FAF3F3"
         android:textSize="50dp"
@@ -63,52 +61,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/databasebtn"
-        android:layout_width="239dp"
-        android:layout_height="212dp"
-        android:background="@drawable/paint_splatter"
-        android:text="Pre-Made Cocktails"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:backgroundTint="#F28CF6"
+    <Spinner
+        android:id="@+id/spinnerMachine"
+        android:layout_width="388dp"
+        android:layout_height="32dp"
+        android:alpha="0.8"
+        android:background="#80FFFFFF"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
-
-    <Button
-        android:id="@+id/naviagtebtn"
-        android:layout_width="236dp"
-        android:layout_height="212dp"
-        android:background="@drawable/paint_splatter"
-        android:text="Make Your Own"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:backgroundTint="#4CE1CA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.643" />
-
-    <Button
-        android:id="@+id/Settingbtn"
-        android:layout_width="323dp"
-        android:layout_height="108dp"
-        android:background="@drawable/paint_splatter"
-        android:textColor="@color/black"
-        android:text="Settings"
-        android:textSize="48sp"
-        app:backgroundTint="#F1AF68"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
-
+        app:layout_constraintVertical_bias="0.296" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
