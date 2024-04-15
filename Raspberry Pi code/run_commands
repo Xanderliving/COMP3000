@@ -1,0 +1,8 @@
+#!/bin/bash
+cd /home/alexander/my-rest-api
+node app.js &
+
+
+cd ../
+python Controller.py &
+
