@@ -49,7 +49,7 @@ public class SettingsPage extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), SettingsActivity.class);
                 } else {
                     // What is it selected
-                    intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent = new Intent(getApplicationContext(), WhatIsItActivity.class);
                 }
                 startActivity(intent);
                 // Optionally reset spinner to title after selection

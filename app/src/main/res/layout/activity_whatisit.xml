@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Text1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The Make Your Own function lets the user control how many shots a pump dispenses, the Premade Cocktails is a database with cocktails ready for the machine to make and the setting page lets the user change the liquid that is in the machine." />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/background4aoo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="393dp"
+        android:layout_height="832dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/picture3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="341dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="50"
+
+        android:text="What Is It?"
+        android:textAlignment="center"
+        android:textColor="#FAF3F3"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="334dp"
+        android:layout_height="585dp"
+        android:alpha="0.8"
+        android:background="#EAD9C4"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.757" />
+
+    <TextView
+        android:id="@+id/Text"
+        android:layout_width="321dp"
+        android:layout_height="602dp"
+        android:text="Pick ‘n’ Mixologist is an Android application and a physical machine that, with the use of APIs, connects to bring quality cocktails to the user.
+                                               The machine is running off a Raspberry Pi 3 that is connected to relays and six peristaltic pumps that are food-safe. With these components the Raspberry Pi, hosting APIs, the device is connectable and ready to output liquids.
+                                           The Make Your Own function lets the user control how many shots a pump dispenses, the Premade Cocktails is a database with cocktails ready for the machine to make and the setting page lets the user change the liquid that is in the machine.
+                                            The Android application (designed on android studio) has three main functions, Make Your Own, Premade Cocktails and Settings. "
+        android:textColor="#806262"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

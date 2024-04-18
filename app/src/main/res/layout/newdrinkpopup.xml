@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/Description"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="45dp"
             android:text="Please take the tube out the bottle"
             android:textAlignment="center" />
 
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/createbtn"
-            android:text="Changed"
+            android:text="Submit"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:backgroundTint="#7BED6F" />

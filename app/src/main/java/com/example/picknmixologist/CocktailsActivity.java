@@ -6,10 +6,13 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CocktailsActivity extends AppCompatActivity {
 
@@ -38,13 +42,27 @@ public class CocktailsActivity extends AppCompatActivity {
     ArrayList<String> titles = new ArrayList<>();
     ArrayList<String> vodka = new ArrayList<>();
     ArrayList<String> gin = new ArrayList<>();
+    ArrayList<String> rum = new ArrayList<>();
+    ArrayList<String> tequila = new ArrayList<>();
+    ArrayList<String> coke = new ArrayList<>();
+    ArrayList<String> lemonade = new ArrayList<>();
+    ArrayList<String> extra = new ArrayList<>();
+    ArrayList<String> units = new ArrayList<>();
+    public List<String> filterTitles(List<String> titles, String query) {
+        return titles;
+    };
+
+
     ArrayAdapter<String> adapter;
 
     public int OnPumps = 0;
     public int OffPumps = 0;
 
-    int Vodka,Gin = 0;
-    private int Pumps = 0;
+    int Vodka,Gin,Rum,Tequila,Coke,Lemonade = 0;
+    int Units = 0;
+    public String Extra;
+    int Pumps = 0;
+    private EditText editTextSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,55 +73,107 @@ public class CocktailsActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
         listView.setAdapter(adapter);
+        editTextSearch = findViewById(R.id.editTextSearch);
+
+        // Add TextChangedListener to EditText
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // Filter the data based on user input
+                filter(editable.toString());
+            }
+        });
+    }
+
+    public void filter(String text) {
+        List<String> filteredList = new ArrayList<>();
+        if (!text.isEmpty()) {
+            for (String item : titles) {
+                if (item.toLowerCase().contains(text.toLowerCase())) {
+                    filteredList.add(item);
+                }
+            }
+        } else {
+            filteredList.addAll(titles); // If the search query is empty, show all items
+        }
+
+        // Update the adapter with filtered data
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, filteredList);
+        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @SuppressLint("MissingInflatedId")
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                 fetchData();
-
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(CocktailsActivity.this);
                 View dialogView = getLayoutInflater().inflate(R.layout.shotpopup, null);
-
+                dialogBuilder.setView(dialogView);
+                //Stops user from clicking out the popup
+                //dialogBuilder.setCancelable(false);
+                final AlertDialog alertDialogs = dialogBuilder.create();
+                alertDialogs.show();
                 TextView Shots1;
 
-                dialogBuilder.setView(dialogView);
+                //dialogBuilder.setView(dialogView);
                 Shots1 = dialogView.findViewById(R.id.Pump1s);
                 Shots1.setText(String.valueOf(vodka.get(position)));
                 Shots1 = dialogView.findViewById(R.id.Pump2s);
-                Shots1.setText(String.valueOf(vodka.get(position)));
+                Shots1.setText(String.valueOf(gin.get(position)));
                 Shots1 = dialogView.findViewById(R.id.Pump3s);
-                Shots1.setText(String.valueOf(vodka.get(position)));
+                Shots1.setText(String.valueOf(rum.get(position)));
                 Shots1 = dialogView.findViewById(R.id.Pump4s);
-                Shots1.setText(String.valueOf(vodka.get(position)));
+                Shots1.setText(String.valueOf(tequila.get(position)));
                 Shots1 = dialogView.findViewById(R.id.Pump5s);
-                Shots1.setText(String.valueOf(vodka.get(position)));
+                Shots1.setText(String.valueOf(coke.get(position)));
                 Shots1 = dialogView.findViewById(R.id.Pump6s);
-                Shots1.setText(String.valueOf(vodka.get(position)));
+                Shots1.setText(String.valueOf(lemonade.get(position)));
+                Shots1 = dialogView.findViewById(R.id.Units);
+                Shots1.setText("This drink is " + String.valueOf(units.get(position)) + " Units");
+                Shots1 = dialogView.findViewById(R.id.title);
+                Shots1.setText("Do you want to make a " + String.valueOf(titles.get(position)));
+
+
 
                 Pump1 = Integer.parseInt(vodka.get(position));
+                Pump2 = Integer.parseInt(gin.get(position));
+                Pump3 = Integer.parseInt(rum.get(position));
+                Pump4 = Integer.parseInt(tequila.get(position));
+                Pump5 = Integer.parseInt(coke.get(position));
+                Pump6 = Integer.parseInt(lemonade.get(position));
+                Units = Integer.parseInt(units.get(position));
+
+                Shots1 = dialogView.findViewById(R.id.Extra);
+                Shots1.setText(String.valueOf(extra.get(position)));
 
 
-                final AlertDialog alertDialog = dialogBuilder.create();
-                alertDialog.show();
                 Button closeButton = dialogView.findViewById(R.id.button1);
                 closeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        alertDialog.dismiss();
+                        alertDialogs.dismiss();
                     }
                 });
 
-                Button cocktailbtn = findViewById(R.id.Sendbtn);
-                cocktailbtn.setOnClickListener(new View.OnClickListener() {
+                Button sendButton = dialogView.findViewById(R.id.button2);
+                sendButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(View v) {
+                        alertDialogs.dismiss();
                         showPopupLoading();
-
-
                     }
                 });
             }
         });
+
 
 
     }
@@ -131,9 +201,56 @@ public class CocktailsActivity extends AppCompatActivity {
                             // If "Gin" field is not present or cannot be parsed as an integer, set it to 0
                             Gin = 0;
                         }
+
+                        try {
+                            Rum = jsonObject.getInt("Rum");
+                        } catch (JSONException e) {
+                            // If "Gin" field is not present or cannot be parsed as an integer, set it to 0
+                            Rum = 0;
+                        }
+
+                        try {
+                            Tequila = jsonObject.getInt("Tequila");
+                        } catch (JSONException e) {
+                            // If "Gin" field is not present or cannot be parsed as an integer, set it to 0
+                            Tequila = 0;
+                        }
+
+                        try {
+                            Coke = jsonObject.getInt("Coke");
+                        } catch (JSONException e) {
+                            // If "Gin" field is not present or cannot be parsed as an integer, set it to 0
+                            Coke = 0;
+                        }
+
+                        try {
+                            Lemonade = jsonObject.getInt("Lemonade");
+                        } catch (JSONException e) {
+                            // If "Gin" field is not present or cannot be parsed as an integer, set it to 0
+                            Lemonade = 0;
+                        }
+                        try {
+                            Extra = jsonObject.getString("Extra");
+                        } catch (JSONException e) {
+
+                            Extra = "";
+                        }
+                        try {
+                            Units = jsonObject.getInt("Units");
+                        } catch (JSONException e) {
+
+                            Units = 0;
+                        }
+
                         titles.add(title);
                         vodka.add(String.valueOf(Vodka));
                         gin.add(String.valueOf(Gin));
+                        rum.add(String.valueOf(Rum));
+                        tequila.add(String.valueOf(Tequila));
+                        coke.add(String.valueOf(Coke));
+                        lemonade.add(String.valueOf(Lemonade));
+                        extra.add(Extra);
+                        units.add(String.valueOf(Units));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -166,8 +283,11 @@ public class CocktailsActivity extends AppCompatActivity {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(CocktailsActivity.this);
         View dialogView = getLayoutInflater().inflate(R.layout.loadingpopup, null);
         dialogBuilder.setView(dialogView);
+        //Stops user from clicking out the popup
+        dialogBuilder.setCancelable(false);
         final AlertDialog alertDialogs = dialogBuilder.create();
         alertDialogs.show();
+
 
         int durationInMillis = 15000; // 6 seconds
         Shots[0] = durationInMillis * Pump1;
@@ -240,5 +360,7 @@ public class CocktailsActivity extends AppCompatActivity {
         if (Shots[5] != 0){countDownTimer6.start(); onButtonClick2();}
 
         }
-    }
+
+
+}
 

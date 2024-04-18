@@ -18,7 +18,8 @@ import org.json.JSONObject;
 
 public class PutRequest extends AppCompatActivity {
     public static String[] Drinks = {"place", "Vodka" ,"Gin" ,"Rum" ,"Tequila" ,"Coke", "Lemonade"};
-    private static final String BASE_URL = "http://192.168.0.46:8000/book/";
+    private static final String BASE_URL = "http://192.168.0.46:3001/pumps/";
+    private static final String URL2 = "http://192.168.0.46:3001/";
 
     public static void changeStatusOff(Context context, int Pumps) {
         RequestQueue queue = Volley.newRequestQueue(context);
@@ -51,6 +52,8 @@ public class PutRequest extends AppCompatActivity {
 
         queue.add(jsonObjectRequest);
     }
+
+
     public static void changeStatusOn(Context context, int Pumps) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = BASE_URL + Pumps;
