@@ -26,6 +26,32 @@ const startServer = async () => {
       }
     });
 
+    app.get('/accounts', async (req, res) => {
+      try {
+        const result = await db.collection('Users').find({}).toArray();
+        res.json(result);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        res.status(500).send('Internal Server Error');
+      }
+    });
+
+    app.post('/accounts/new', async (req, res) => {
+  const { username, password } = req.body;y
+  try {
+
+    const existingUser = await db.collection('Users').findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ error: 'Username already exists' });
+    }
+    await db.collection('Users').insertOne({ username, password });
+    res.status(201).json({ message: 'User created successfully', username });
+  } catch (err) {
+    console.error('Error creating user:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
 let items = [
   { id: 1, name: "Vodka", status: "Off" },
